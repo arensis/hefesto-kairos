@@ -1,0 +1,16 @@
+{
+  "stations": [
+    {
+      "location": {
+        "city": "Quer",
+        "latitude": 40.612205,
+        "longitude": -3.277860,	
+      },
+      "measurements": {
+        "temperature": 26.98,
+        "humidity": 57.00,
+        "airPressure": 709.36
+      }
+    }
+  ]
+}
