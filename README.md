@@ -19,3 +19,9 @@ sudo apt install python3-venv python3-pip
 ```console
 pip3 install -r requirements.txt
 ```
+
+## Formatear el fuente
+
+```console
+black ./
+```

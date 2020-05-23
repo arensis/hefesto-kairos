@@ -2,3 +2,6 @@
 
 #Flask framework
 Flask==1.1.2
+
+#Python files formater
+black==19.10b0
