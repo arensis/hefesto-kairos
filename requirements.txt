@@ -1,7 +1,9 @@
-# This file is used by pip to install required python packages# Flask Framework
-
-#Flask framework
+# This file is used by pip to install required python packages
+#Flask framework version | pip install Flask
 Flask==1.1.2
 
-#Python files formater
+#Python files formater | pip install black
 black==19.10b0
+
+#Python static code analysis tool | pip install pylint
+pylint==2.5.2

@@ -4,24 +4,70 @@ El proyecto funciona como un API REST para el registro de datos de estaciones me
 
 ## Instalar python
 
-```console
-sudo apt install python3
+  ```console
+  sudo apt install python3
+  ```
+
+## Instalar administrador de paquetes pip
+
+  ```bash
+  sudo apt install python3-venv python3-pip
+  ```
+
+## Crear por primera vez la configuración de entorno para el proyecto
+
+### Crear el entorno virtual
+
+  ```bash
+  python3 -m venv venv
+  ```
+
+### Activar el entorno virtual
+
+```bash
+source venv/bin/activate
 ```
 
-## Instalar pip
+### Instalar las dependencias del proyecto
 
-```console
-sudo apt install python3-venv python3-pip
+  ```bash
+  pip3 install -r requirements.txt
+  ```
+
+## Arrancar el proyecto
+
+### Activar el entorno virtual si no está ya activo
+
+```bash
+source venv/bin/activate
 ```
 
-## Instalar los paquetes necesarios del proyecto
+### Exportar la variable de entorno de la aplicación
 
-```console
-pip3 install -r requirements.txt
+```bash
+export FLASK_APP=kairos.py
+```
+
+### Configurar la aplicación en modo debug
+
+```bash
+export FLASK_DEBUG=1
+```
+
+### Levantar el servidor
+
+```bash
+flask run
 ```
 
 ## Formatear el fuente
 
-```console
-black ./
-```
+  ```bash
+  black kairos.py
+  ```
+
+## Analizar el fuente
+
+  ```bash
+  pylint kairos.py
+  ```
