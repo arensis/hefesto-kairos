@@ -1,0 +1,22 @@
+{
+  "stations": [
+    {
+      "date": "10/10/2020",
+      "location": {
+        "name": "Oficina",
+        "indoor": true,
+        "city": "Quer",
+        "latitude": 40.612205,
+        "longitude": -3.277860
+      },
+      "measurements": [
+        {
+          "date": "10/10/2020",
+          "temperature": 26.98,
+          "humidity": 57.00,
+          "airPressure": 709.36
+        }
+      ]
+    }
+  ]
+}

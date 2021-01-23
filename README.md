@@ -44,8 +44,15 @@ source venv/bin/activate
 
 ### Exportar la variable de entorno de la aplicación
 
+## Sistemas Unix
 ```bash
 export FLASK_APP=kairos.py
+```
+
+## Windows
+
+```powershell
+$env:FLASK_APP = "kairos.py"
 ```
 
 ### Configurar la aplicación en modo debug

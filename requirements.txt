@@ -7,3 +7,9 @@ black==19.10b0
 
 #Python static code analysis tool | pip install pylint
 pylint==2.5.2
+
+#Requests library: https://github.com/psf/requests
+requests==2.25.0
+
+# Flask mongo ORM | pip install flask-mongoengine
+flask-mongoengine==1.0.0

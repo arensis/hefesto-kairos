@@ -1,17 +1,35 @@
-from flask import Flask
+from flask import Flask, request, Response
+from database.db import initialize_db
+from services.station_services import *
 
 app = Flask(__name__)
 
+app.config['MONGODB_SETTINGS'] = {
+    'port': 37017
+}
 
-@app.route("/")
-def stations():
-    return app.response_class(
-        response=open("mocks/stations.json", "r").read(),
-        status=200,
-        mimetype="application/json",
-    )
+initialize_db(app)
 
+@app.route("/stations", methos=["GET"])
+def get_stations():
+    return Response(stations().to_json(), mimetype="application/json", status=200)
 
-@app.route("/hefesto/", methods=["POST"])
-def save_register():
-    return app.response_class(status=201)
+@app.route("/station/<id>", methos=["GET"])
+def get_station():
+    return Response(station(id).to_json(), mimetype="application/json", status=200)
+
+@app.route("/station/create", methods=["POST"])
+def create_station():
+    body = request.get_jsong()
+    id = saveStation(body)
+    return Response({ 'station_id': str(id) }, mimetype="application/json", status=200)
+
+@app.route("/station/<id>/measurements", methods=["POST"])
+def create_station_measurement(id):
+    body = request.get_jsong()
+    measurement_id = update_measurements(id, body)
+    return Response(
+            { 'measurement_id': str(measurement_id), 'message': 'Mesasurement created'}, 
+            mimetype="application/json", 
+            status=200
+        )
