@@ -38,8 +38,15 @@ source venv/bin/activate
 
 ### Activar el entorno virtual si no está ya activo
 
+## Sistemas Unix
 ```bash
 source venv/bin/activate
+```
+
+## Windows
+
+```powershell
+venv\Scripts\activate
 ```
 
 ### Exportar la variable de entorno de la aplicación
@@ -59,6 +66,14 @@ $env:FLASK_APP = "kairos.py"
 
 ```bash
 export FLASK_DEBUG=1
+```
+
+### Arrancar el servidor en local
+
+## Levantar una instancia de MongoDB con docker
+
+```bash
+docker run -p 27017:27017 --name mongo-kairos -d mongo
 ```
 
 ### Levantar el servidor
