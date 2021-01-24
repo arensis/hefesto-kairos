@@ -10,11 +10,11 @@ app.config['MONGODB_SETTINGS'] = {
 
 initialize_db(app)
 
-@app.route("/stations", methos=["GET"])
+@app.route("/stations", methods=["GET"])
 def get_stations():
     return Response(stations().to_json(), mimetype="application/json", status=200)
 
-@app.route("/station/<id>", methos=["GET"])
+@app.route("/station/<id>", methods=["GET"])
 def get_station():
     return Response(station(id).to_json(), mimetype="application/json", status=200)
 
