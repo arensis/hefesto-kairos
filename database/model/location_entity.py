@@ -1,5 +1,6 @@
 from database.services.kairos_database_service import db
 
+
 class Location(db.EmbeddedDocument):
     name = db.StringField(required=True)
     indoor = db.BooleanField(required=True)

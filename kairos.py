@@ -1,43 +1,51 @@
-from flask import Flask, request, Response, jsonify
+from flask import Flask, request, Response
 from database.services.kairos_database_service import initialize_db
-from services.station_services import *
+from services.station_services import (
+    handleGetRequest,
+    station,
+    stations,
+    saveStation,
+    update_measurements,
+    deleteStation,
+)
 
 app = Flask(__name__)
 
-app.config['MONGODB_SETTINGS'] = {
-    'port': 27017
-}
+app.config["MONGODB_SETTINGS"] = {"port": 27017}
 
 initialize_db(app)
+
 
 @app.route("/stations", methods=["GET"])
 def get_stations():
     return handleGetRequest(stations())
 
-@app.route("/station/<id>", methods=["GET"])
-def get_station(id):
-    return handleGetRequest(station(id))
+
+@app.route("/station/<station_id>", methods=["GET"])
+def get_station(station_id):
+    return handleGetRequest(station(station_id))
+
 
 @app.route("/station/create", methods=["POST"])
 def create_station():
     body = request.get_json()
-    id = saveStation(body)
-    return {'station_id': str(id) }, 201
+    save_station_id = saveStation(body)
+    return {"station_id": str(save_station_id)}, 201
 
-@app.route("/station/<id>/measurements", methods=["PUT"])
-def add_new_measurement_to_station(id):
+
+@app.route("/station/<station_id_to_update>/measurements", methods=["PUT"])
+def add_new_measurement_to_station(station_id_to_update):
     body = request.get_json()
-    station = update_measurements(id, body)
-    if(station != None):
+    updated_station = update_measurements(station_id_to_update, body)
+    if updated_station is not None:
         return Response(
-            {'message': 'Mesasurement created'}, 
-            mimetype="application/json", 
-            status=201
+            {"message": "Mesasurement created"}, mimetype="application/json", status=201
         )
-    else:
-        return { 'message': 'Internal server error'}, 500
-        
-@app.route("/station/<id>", methods=["DELETE"])
-def delete_station(id):
-    deleteStation(id)
+
+    return {"message": "Internal server error"}, 500
+
+
+@app.route("/station/<station_id_to_delete>", methods=["DELETE"])
+def delete_station(station_id_to_delete):
+    deleteStation(station_id_to_delete)
     return "Station has been deleted", 201

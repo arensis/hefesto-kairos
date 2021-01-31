@@ -14,73 +14,71 @@ El proyecto funciona como un API REST para el registro de datos de estaciones me
   sudo apt install python3-venv python3-pip
   ```
 
+
 ## Crear por primera vez la configuración de entorno para el proyecto
 
-### Crear el entorno virtual
+- ### Crear el entorno virtual
 
   ```bash
   python3 -m venv venv
   ```
 
-### Activar el entorno virtual
+- ### Activar el entorno virtual
 
-```bash
-source venv/bin/activate
-```
+  - ### Sistemas Unix
 
-### Instalar las dependencias del proyecto
+    ```bash
+    source venv/bin/activate
+    ```
 
-  ```bash
-  pip3 install -r requirements.txt
-  ```
+  - ## Windows
+
+    ```powershell
+    venv\Scripts\activate
+    ```
+
+- ### Instalar las dependencias del proyecto
+
+    ```bash
+    pip3 install -r requirements.txt
+    ```
 
 ## Arrancar el proyecto
 
-### Activar el entorno virtual si no está ya activo
+- ### Activar el entorno virtual si no está ya activo
 
-## Sistemas Unix
-```bash
-source venv/bin/activate
-```
+- ### Exportar la variable de entorno de la aplicación
 
-## Windows
+  - #### Sistemas Unix
 
-```powershell
-venv\Scripts\activate
-```
+    ```bash
+    export FLASK_APP=kairos.py
+    ```
 
-### Exportar la variable de entorno de la aplicación
+  - #### Windows
 
-## Sistemas Unix
-```bash
-export FLASK_APP=kairos.py
-```
+    ```powershell
+    $env:FLASK_APP = "kairos.py"
+    ```
 
-## Windows
+  - #### Configurar la aplicación en modo debug
 
-```powershell
-$env:FLASK_APP = "kairos.py"
-```
+    ```bash
+    export FLASK_DEBUG=1
+    ```
 
-### Configurar la aplicación en modo debug
+- ### Levantar una instancia de MongoDB con docker
 
-```bash
-export FLASK_DEBUG=1
-```
+  ```bash
+  docker run -p 27017:27017 --name mongo-kairos -d mongo
+  ```
 
-### Arrancar el servidor en local
+- ### Arrancar el servidor
 
-## Levantar una instancia de MongoDB con docker
-
-```bash
-docker run -p 27017:27017 --name mongo-kairos -d mongo
-```
-
-### Levantar el servidor
-
-```bash
-flask run
-```
+  ```bash
+  flask run
+  ```
+  > **Nota:** Si diera algún error al arrancar borrar la carpeta de entorno y volverlo a crear y activar
 
 ## Formatear el fuente
 
