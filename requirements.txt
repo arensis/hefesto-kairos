@@ -1,4 +1,11 @@
 # This file is used by pip to install required python packages
+
+# lastest jinja2 version has changed and is not compatible with flask 1.1.2, 
+# this is a workarround to solved this issue without updated to lastest flask version
+Jinja2==3.0.3
+itsdangerous==2.0.1
+werkzeug==2.0.2
+
 #Flask framework version | pip install Flask
 Flask==1.1.2
 

@@ -70,7 +70,7 @@ El proyecto funciona como un API REST para el registro de datos de estaciones me
 - ### Levantar una instancia de MongoDB con docker
 
   ```bash
-  docker run -p 27017:27017 --name mongo-kairos -d mongo
+  docker run -p 0.0.0.0:27017:27017 --name mongo-kairos -d mongo:4
   ```
 
 - ### Arrancar el servidor
