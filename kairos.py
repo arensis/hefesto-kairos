@@ -1,4 +1,5 @@
 from flask import Flask, request, Response
+from flask_cors import CORS
 from database.services.kairos_database_service import initialize_db
 from services.station_services import (
     handleGetRequest,
@@ -10,8 +11,9 @@ from services.station_services import (
 )
 
 app = Flask(__name__)
+CORS(app, resources={r"*": {"origins": "*"}})
 
-app.config["MONGODB_SETTINGS"] = {"port": 27017}
+app.config["MONGODB_SETTINGS"] = {"host": "192.168.1.137", "port": 27017}
 
 initialize_db(app)
 
