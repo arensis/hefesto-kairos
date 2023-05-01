@@ -7,7 +7,7 @@ itsdangerous==2.0.1
 werkzeug==2.0.2
 
 #Flask framework version | pip install Flask
-Flask==1.1.2
+Flask==2.3.2
 
 #Python files formater | pip install black
 black==19.10b0
