@@ -2,6 +2,13 @@
 
 El proyecto funciona como un API REST para el registro de datos de estaciones meteorológicas arduino y como servicio de consulta de datos sobre estas estaciones.
 
+## Estación meteorológica
+
+Para reportar datos se utilizó una placa NodeMCU que tiene conectado un sensor de temperatura y humedad DHT11. La placa envía las mediciones a través de una petición REST al servidor y en caso de error envía una notificación a un bot de Telegram.
+Para funcionar correctamente se han de completar ciertas variables en el fichero config.h, tales como la conexión de la wifi, la url del servidor, los datos de conexión con el bot de telegram, etc.
+
+[Repositorio de código de estación con DHT11 y placa NodeMCU](https://github.com/arensis/arduino/tree/kairos/NodeMCU/KAIROS_STATION_DHT11_SENSOR/API_CLIENT_JSON_DS18B20_TEMP_SENSOR)
+
 ## Instalar python
 
   ```console
