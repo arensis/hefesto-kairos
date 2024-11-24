@@ -75,10 +75,13 @@ Para funcionar correctamente se han de completar ciertas variables en el fichero
     ```
 
 - ### Levantar una instancia de MongoDB con docker
-
-  ```bash
-  docker run -p 0.0.0.0:27017:27017 --name mongo-kairos -d mongo:4
-  ```
+  Si el contenedor de docker va a ser ejecutado dentro de una raspberry pi, si la raspberry pi es inferior a la raspberrypi 5 deberá usarse la versión de mongo 4.4.6, debido a que versiones posteriores requieren que el procesador suporte instrucciones AVX y los procesadores que montan raspberrypi inferiores a la 5 no lo soportan.
+  - Fuente: https://github.com/linuxserver/docker-unifi-network-application/issues/4
+  - Qué son las instruccions AVX: https://hardzone.es/reportajes/que-es/instrucciones-avx-procesador/
+  - Comando:
+    ```bash
+    docker run -p 0.0.0.0:27017:27017 --name mongo-kairos -d mongo:4.4.6
+    ```
 
 - ### Arrancar el servidor
 
